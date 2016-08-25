@@ -1,0 +1,5 @@
+提交表单弹出下载提示对话框的解决办法：
+在开始——运行里分别输入
+regsvr32 msxml3.dll
+regsvr32 jscript.dll
+regsvr32 vbscript.dll

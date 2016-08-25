@@ -1,0 +1,4 @@
+本程序的后台登录地址：http://192.168.1.***:8080/Shop/admin/user/user_logon.html
+
+用户名和密码都是admin
+

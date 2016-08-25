@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ <!-- 学生信息字段配置信息 -->
+ <hibernate-mapping>
+ 	<class name="com.mr.student.StudentVO" table="tb_students">
+ 		<id name="id" column="id" type="int">
+			<generator class="native"/>
+		</id>
+		<property name="studentCode" type="string" length="45">
+			<column name="studentCode"/>
+		</property>
+		<property name="name" type="string" length="45">
+			<column name="name"/>
+		</property>
+		<property name="sex" type="string" length="45">
+			<column name="sex"/>
+		</property>
+		<property name="institute" type="string" length="45">
+			<column name="institute"/>
+		</property>
+		<property name="department" type="string" length="45">
+			<column name="department"/>
+		</property>
+		<property name="classes" type="string" length="45">
+			<column name="classes"/>
+		</property>
+		<property name="phone" type="string" length="45">
+			<column name="phone"/>
+		</property>
+		<property name="address" type="string" length="45">
+			<column name="address"/>
+		</property>
+ 	</class>
+ </hibernate-mapping>

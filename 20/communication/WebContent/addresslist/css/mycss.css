@@ -1,0 +1,28 @@
+td {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 14px;
+	font-weight: bold;
+}
+input {
+	font-size:9pt;
+	color: #003399;
+	font-family: ËÎÌו;
+	border: '1px' 'dashed' '#999999';
+	background: #EEEEEE;
+}
+.td1{
+	font-size: 12pt;
+	font-family: ÷ÚÌו;
+}
+.radio1 {
+	width: 15px;
+}
+.textarea {
+	height: 90px;
+	width: 200px;
+}
+.botton1{
+	background: #FFFFFF;
+	font-weight:bold;
+	width: 50px;
+}

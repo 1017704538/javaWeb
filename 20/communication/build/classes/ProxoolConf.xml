@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<something-else-entirely>
+	<proxool>
+		<!-- 配置连接池的别名 -->
+		<alias>pool1</alias>
+		<!-- 数据库连接URL -->
+		<driver-url>jdbc:mysql://localhost:3306/db_test</driver-url>
+		<!-- 数据库驱动类 -->
+		<driver-class>com.mysql.jdbc.Driver</driver-class>
+		<driver-properties>
+			<property name="user" value="root" /><!-- 数据库连接用户名 -->
+			<property name="password" value="111" /><!-- 数据库连接密码 -->
+		</driver-properties>
+		<!-- proxool自动侦察各个连接状态的时间间隔(毫秒),侦察到空闲的连接就马上回收,超时的销毁 -->
+		<house-keeping-sleep-time>90000</house-keeping-sleep-time>
+		<!--新建连接的最大数目  -->
+		<maximum-new-connections>20</maximum-new-connections>
+		<!-- 最少保持的空闲连接数 -->
+		<prototype-count>5</prototype-count>
+		<!-- 最大连接数目 -->
+		<maximum-connection-count>100</maximum-connection-count>
+		<!-- 最小连接数目 -->
+		<minimum-connection-count>10</minimum-connection-count>
+	</proxool>
+</something-else-entirely>

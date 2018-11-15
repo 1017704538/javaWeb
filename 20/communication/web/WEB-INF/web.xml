@@ -1,8 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns="http://java.sun.com/xml/ns/javaee"
-           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-           xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
-		  http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
-           version="3.0">
-
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>communication</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <!-- 通讯录信息处理Servlet -->
+  <servlet>
+    <description></description>
+    <display-name>PersonListServlet</display-name>
+    <servlet-name>PersonListServlet</servlet-name>
+    <servlet-class>com.lh.service.PersonListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PersonListServlet</servlet-name>
+    <url-pattern>/PersonListServlet</url-pattern>
+  </servlet-mapping>
+   <!-- 通讯录信息类别处理Servlet -->
+  <servlet>
+    <description></description>
+    <display-name>PersonTypeServlet</display-name>
+    <servlet-name>PersonTypeServlet</servlet-name>
+    <servlet-class>com.lh.service.PersonTypeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PersonTypeServlet</servlet-name>
+    <url-pattern>/PersonTypeServlet</url-pattern>
+  </servlet-mapping>
+   <!-- 用户登录注册处理Servlet -->
+  <servlet>
+    <description></description>
+    <display-name>UserServlet</display-name>
+    <servlet-name>UserServlet</servlet-name>
+    <servlet-class>com.lh.service.UserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserServlet</servlet-name>
+    <url-pattern>/UserServlet</url-pattern>
+  </servlet-mapping>
+  <!-- 声明过滤器 -->
+  
+	<filter>
+		<filter-name>CharactorFilter</filter-name><!-- 过滤器名称 -->	
+		<filter-class>com.lh.service.CharactorFilter</filter-class><!-- 过滤器的完整类名 -->
+		<init-param><!-- 初始化参数 -->
+			<param-name>encoding</param-name><!-- 参数名 -->
+			<param-value>UTF-8</param-value><!-- 参数值 -->
+		</init-param>
+	</filter>
+	<filter-mapping><!-- 过滤器映射 -->
+		<filter-name>CharactorFilter</filter-name><!-- 过滤器名称 -->		
+		<url-pattern>/*</url-pattern><!-- URL映射 -->
+	</filter-mapping>
 </web-app>

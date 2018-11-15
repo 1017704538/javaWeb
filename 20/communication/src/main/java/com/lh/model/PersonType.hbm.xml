@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping >
+  <class name="com.lh.model.PersonType" table="tb_persontype">
+  	<id name="typeId" type="java.lang.String">
+  		<column name="id" length="50" ></column>
+  		<generator class="uuid.hex"></generator>
+  	</id>
+  	<property name="personType" type="java.lang.String" >
+  		<column name="type" length="50"></column>
+  	</property>
+  </class>
+</hibernate-mapping>

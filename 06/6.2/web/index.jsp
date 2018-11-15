@@ -1,8 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=gb2312" pageEncoding="gb2312"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="gb2312"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>	
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>根据是否登录显示不同的内容</title>
 </head>
 <body>

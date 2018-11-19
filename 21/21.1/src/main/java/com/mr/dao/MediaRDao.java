@@ -38,7 +38,7 @@ public class MediaRDao {
 	public List mediaR_query(Integer mediaR_rootId) {
 		List<MediaRInfo> list = new ArrayList<MediaRInfo>();//定义List集合
 		//根据视频id值查询视频的留言信息SQL语句
-		sql = "select * from tb_mediaR where mediaR_rootId = " + mediaR_rootId
+		sql = "select * from tb_mediar where mediaR_rootId = " + mediaR_rootId
 				+ " order by id desc";
 		ResultSet rs = connection.executeQuery(sql);//执行查询操作
 		try {
@@ -62,7 +62,7 @@ public class MediaRDao {
 	 */
 	public void media_add(MediaRInfo mediaRInfo) {
 		//添加留言信息的SQL语句
-		sql = "insert into tb_mediaR (mediaR_rootId,mediaR_author,mediaR_conten,mediaR_time) values (" 
+		sql = "insert into tb_mediar (mediaR_rootId,mediaR_author,mediaR_conten,mediaR_time) values ("
 				+ mediaRInfo.getMediaR_rootId()
 				+ ",'" + mediaRInfo.getMediaR_author() + "','"
 				+ mediaRInfo.getMediaR_content() + "','"+this.getNowTime()+"')";
@@ -73,7 +73,7 @@ public class MediaRDao {
 	 * @param mediaR_author 用户名称
 	 */
 	public void media_deleteAllUser(String mediaR_author) {
-		sql = "delete from tb_mediaR where mediaR_author = '" + mediaR_author
+		sql = "delete from tb_mediar where mediaR_author = '" + mediaR_author
 				+ "'";
 		connection.executeUpdata(sql);
 	}
@@ -83,7 +83,7 @@ public class MediaRDao {
 	 */
 	public void media_deleteAllId(Integer mediaR_rootId) {
 		//执行删除视频留言信息的SQL语句
-		sql = "delete from tb_mediaR where mediaR_rootId = " + mediaR_rootId+ "";
+		sql = "delete from tb_mediar where mediaR_rootId = " + mediaR_rootId+ "";
 		connection.executeUpdata(sql);
 	}
 	/**
@@ -92,7 +92,7 @@ public class MediaRDao {
 	 */
 	public void media_delete(Integer id) {
 		//执行删除视频信息的SQL语句
-		sql = "delete from tb_mediaR where id = " + id + "";
+		sql = "delete from tb_mediar where id = " + id + "";
 		connection.executeUpdata(sql);
 	}
 }

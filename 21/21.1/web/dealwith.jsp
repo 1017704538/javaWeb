@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="gb2312"%>
+	pageEncoding="utf-8"%>
 <jsp:directive.page import="com.mr.model.*" />
 <jsp:directive.page import="com.mr.dao.*" />
 <jsp:directive.page import="java.io.File" /> 
@@ -26,10 +26,10 @@
 				info = adminDao.admin_queryPassword(account);
 				session.setAttribute("info", info);
 			} else {
-				result = "ÄúÊäÈëµÄÃÜÂëÓĞÎó£¡";
+				result = "æ‚¨è¾“å…¥çš„å¯†ç æœ‰è¯¯ï¼";
 			}
 		} else {
-			result = "¸ÃÕËºÅ²»´æÔÚ£¡";
+			result = "è¯¥è´¦å·ä¸å­˜åœ¨ï¼";
 		}
 
 		if (result.equals("")) {
@@ -56,7 +56,7 @@
 			session.setAttribute("username", user.getUser_name());
 			response.sendRedirect("index.jsp");
 		} else {
-			out.print("<script language=javascript>alert('ÄúÊäÈëµÄÓÃ»§ÃûÖØ¸´£¬ÇëÖØĞÂÊäÈë£¡');history.go(-1);</script>");
+			out.print("<script language=javascript>alert('æ‚¨è¾“å…¥çš„ç”¨æˆ·åé‡å¤ï¼Œè¯·é‡æ–°è¾“å…¥ï¼');history.go(-1);</script>");
 		}
 	}
 	if (sign == 3) {
@@ -74,13 +74,13 @@
 					session.setAttribute("username", userInfo
 							.getUser_name());
 				} else {
-					result = "ÄúÊäÈëµÄÃÜÂë²»ÕıÈ·£¬ÇëÖØĞÂÊäÈë£¡";
+					result = "æ‚¨è¾“å…¥çš„å¯†ç ä¸æ­£ç¡®ï¼Œè¯·é‡æ–°è¾“å…¥ï¼";
 				}
 			} else {
-				result = "ÄúÊäÈëµÄÓÃ»§Ãû²»´æÔÚ£¡£¬ÇëÖØĞÂÊäÈë£¡";
+				result = "æ‚¨è¾“å…¥çš„ç”¨æˆ·åä¸å­˜åœ¨ï¼ï¼Œè¯·é‡æ–°è¾“å…¥ï¼";
 			}
 		} else {
-			result = "ÄúÊäÈëµÄÑéÖ¤ÂëÓĞÎó£¡£¬ÇëÖØĞÂÊäÈë£¡";
+			result = "æ‚¨è¾“å…¥çš„éªŒè¯ç æœ‰è¯¯ï¼ï¼Œè¯·é‡æ–°è¾“å…¥ï¼";
 		}
 
 		if (result.equals(""))
@@ -101,7 +101,7 @@
 		mediaRDao.media_add(mediaRInfo);
 		out
 				.print("<script language=javascript>window.location.href='media_show.jsp?id="
-						+ mediaRInfo.getMediaR_rootId() + "';</script>");//·µ»Øµ±Ç°ÊÓÆµ²¥·ÅÒ³Ãæ
+						+ mediaRInfo.getMediaR_rootId() + "';</script>");//è¿”å›å½“å‰è§†é¢‘æ’­æ”¾é¡µé¢
 	}
 
 	if (sign == 5) {
@@ -113,35 +113,35 @@
 		mediaRDao.media_deleteAllUser(username);
 		userDao.user_delete(id);
 		out
-				.print("<script language=javascript>alert('ÄúÊäÈëµÄÃÜÂë²»ÕıÈ·£¬ÇëÖØĞÂÊäÈë£¡');window.location.href='admin/user_query.jsp';</script>");
+				.print("<script language=javascript>alert('æ‚¨è¾“å…¥çš„å¯†ç ä¸æ­£ç¡®ï¼Œè¯·é‡æ–°è¾“å…¥ï¼');window.location.href='admin/user_query.jsp';</script>");
 	}
 
 	if (sign == 6) {
-		Integer id = Integer.valueOf(request.getParameter("id"));//»ñÈ¡id±êÊ¶ 
-		MediaRDao mediaRDao = new MediaRDao();	//ÊµÀı»¯²Ù×÷ÊÓÆµÁôÑÔMediaRDaoÀàµÄ¶ÔÏó
-		mediaRDao.media_deleteAllId(id);//ÊµÀı»¯²Ù×÷ÊÓÆµÁôÑÔMediaRDaoÀàµÄ¶ÔÏó
-		MediaDao mediaDao = new MediaDao();//ÊµÀı»¯ÊÓÆµĞÅÏ¢MediaDaoÀàµÄ¶ÔÏó
-		MediaInfo mediaInfo = mediaDao.media_query(id);	//É¾³ıÊÓÆµĞÅÏ¢µÄ²Ù×÷
-		String media_pic = mediaInfo.getMediaPic();//»ñÈ¡ÒªÉ¾³ıÊÓÆµÎÄ¼şµÄÂ·¾¶
-		media_pic = request.getRealPath("/" + media_pic);//»ñÈ¡ÊÓÆµ½ØÍ¼Â·¾¶ 
+		Integer id = Integer.valueOf(request.getParameter("id"));//è·å–idæ ‡è¯† 
+		MediaRDao mediaRDao = new MediaRDao();	//å®ä¾‹åŒ–æ“ä½œè§†é¢‘ç•™è¨€MediaRDaoç±»çš„å¯¹è±¡
+		mediaRDao.media_deleteAllId(id);//å®ä¾‹åŒ–æ“ä½œè§†é¢‘ç•™è¨€MediaRDaoç±»çš„å¯¹è±¡
+		MediaDao mediaDao = new MediaDao();//å®ä¾‹åŒ–è§†é¢‘ä¿¡æ¯MediaDaoç±»çš„å¯¹è±¡
+		MediaInfo mediaInfo = mediaDao.media_query(id);	//åˆ é™¤è§†é¢‘ä¿¡æ¯çš„æ“ä½œ
+		String media_pic = mediaInfo.getMediaPic();//è·å–è¦åˆ é™¤è§†é¢‘æ–‡ä»¶çš„è·¯å¾„
+		media_pic = request.getRealPath("/" + media_pic);//è·å–è§†é¢‘æˆªå›¾è·¯å¾„ 
 		File file1 = new File(media_pic);
 		if (file1.exists()) {
-			file1.delete();	//É¾³ıÊÓÆµ½ØÍ¼·şÎñÆ÷¶ËµÄÊÓÆµÎÄ¼ş
+			file1.delete();	//åˆ é™¤è§†é¢‘æˆªå›¾æœåŠ¡å™¨ç«¯çš„è§†é¢‘æ–‡ä»¶
 		}
 		String media_src = mediaInfo.getMediaSrc();
-		media_src = request.getRealPath("/" + media_src);//»ñÈ¡ÊÓÆµÂ·¾¶ 
+		media_src = request.getRealPath("/" + media_src);//è·å–è§†é¢‘è·¯å¾„ 
 		File file2 = new File(media_src);
 		if (file2.exists()) {
-			file2.delete();//É¾³ıÊÓÆµ·şÎñÆ÷¶ËµÄÊÓÆµÎÄ¼ş
+			file2.delete();//åˆ é™¤è§†é¢‘æœåŠ¡å™¨ç«¯çš„è§†é¢‘æ–‡ä»¶
 		}
 		mediaDao.media_delete(id);
-		out.print("<script language=javascript>alert('²Ù×÷³É¹¦£¡');window.location.href='admin/mainPage.jsp';</script>");
+		out.print("<script language=javascript>alert('æ“ä½œæˆåŠŸï¼');window.location.href='admin/mainPage.jsp';</script>");
 	}
 	if (sign == 7) {
 		Integer id = Integer.valueOf(request.getParameter("id"));
 		MediaRDao mediaRDao = new MediaRDao();
 		mediaRDao.media_delete(id);
-		out.print("<script language=javascript>alert('²Ù×÷³É¹¦£¡');window.location.href='admin/media_queryOne.jsp?id="
+		out.print("<script language=javascript>alert('æ“ä½œæˆåŠŸï¼');window.location.href='admin/media_queryOne.jsp?id="
 						+ request.getParameter("media_id")
 						+ "';</script>");
 	}

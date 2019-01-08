@@ -6,7 +6,7 @@ import org.apache.struts2.util.StrutsTypeConverter;
 
 import com.lyq.model.Sex;
 /**
- * ĞÔ±ğÀàĞÍ×ª»»Æ÷
+ * æ€§åˆ«ç±»å‹è½¬æ¢å™¨
  * @author Li Yongqiang
  */
 public class SexConversion extends StrutsTypeConverter {

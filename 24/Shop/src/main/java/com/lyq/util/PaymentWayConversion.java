@@ -6,7 +6,7 @@ import org.apache.struts2.util.StrutsTypeConverter;
 
 import com.lyq.model.PaymentWay;
 /**
- * Ö§¸¶·½Ê½ÀàĞÍ×ª»»Æ÷
+ * æ”¯ä»˜æ–¹å¼ç±»å‹è½¬æ¢å™¨
  * @author Li Yongqiang
  *
  */

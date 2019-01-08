@@ -2,7 +2,7 @@ package com.lyq.util.hibernate;
 
 import com.lyq.model.PaymentWay;
 /**
- * 支付方式Hibernate映射类型
+ * 鏀粯鏂瑰紡Hibernate鏄犲皠绫诲瀷
  * @author Li Yongqiang
  */
 public class PaymentWayType extends EnumType<PaymentWay> {

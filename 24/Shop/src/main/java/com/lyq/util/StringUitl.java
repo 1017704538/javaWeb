@@ -4,47 +4,47 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
 /**
- * ×Ö·û´®¹¤¾ßÀà
+ * å­—ç¬¦ä¸²å·¥å…·ç±»
  * @author Li Yongqiang
  */
 public class StringUitl {
 	public static Random random = new Random();
 	/**
-	 * »ñÈ¡µ±Ç°Ê±¼ä×Ö·û´®
-	 * @return µ±Ç°Ê±¼ä×Ö·û´®
+	 * è·å–å½“å‰æ—¶é—´å­—ç¬¦ä¸²
+	 * @return å½“å‰æ—¶é—´å­—ç¬¦ä¸²
 	 */
 	public static String getStringTime(){
-		Date date = new Date();//»ñÈ¡µ±Ç°ÏµÍ³Ê±¼ä
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSSSS");//ÉèÖÃ¸ñÊ½»¯¸ñÊ½
-		return sdf.format(date);//·µ»Ø¸ñÊ½»¯ºóµÄÊ±¼ä
+		Date date = new Date();//è·å–å½“å‰ç³»ç»Ÿæ—¶é—´
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSSSS");//è®¾ç½®æ ¼å¼åŒ–æ ¼å¼
+		return sdf.format(date);//è¿”å›æ ¼å¼åŒ–åçš„æ—¶é—´
 	}
 	/**
-	 * Éú³É¶©µ¥ºÅ
-	 * @return ¶©µ¥ºÅ
+	 * ç”Ÿæˆè®¢å•å·
+	 * @return è®¢å•å·
 	 */
 	public static String createOrderId(){
-		StringBuffer sb = new StringBuffer();//¶¨Òå×Ö·û´®¶ÔÏó
-		sb.append(getStringTime());//Ïò×Ö·û´®¶ÔÏóÖĞÌí¼Óµ±Ç°ÏµÍ³Ê±¼ä
-		for (int i = 0; i < 3; i++) {//Ëæ»úÉú³É3Î»Êı
-			sb.append(random.nextInt(9));//½«Ëæ»úÉú³ÉµÄÊı×ÖÌí¼Óµ½×Ö·û´®¶ÔÏóÖĞ
+		StringBuffer sb = new StringBuffer();//å®šä¹‰å­—ç¬¦ä¸²å¯¹è±¡
+		sb.append(getStringTime());//å‘å­—ç¬¦ä¸²å¯¹è±¡ä¸­æ·»åŠ å½“å‰ç³»ç»Ÿæ—¶é—´
+		for (int i = 0; i < 3; i++) {//éšæœºç”Ÿæˆ3ä½æ•°
+			sb.append(random.nextInt(9));//å°†éšæœºç”Ÿæˆçš„æ•°å­—æ·»åŠ åˆ°å­—ç¬¦ä¸²å¯¹è±¡ä¸­
 		}
-		return sb.toString();//·µ»Ø×Ö·û´®
+		return sb.toString();//è¿”å›å­—ç¬¦ä¸²
 	}
 	/**
-	 * ÑéÖ¤×Ö·û´®µÄÓĞĞ§ĞÔ
-	 * @param s ÑéÖ¤×Ö·û´®
-	 * @return ÊÇ·ñÓĞĞ§µÄ²¼¶ûÖµ
+	 * éªŒè¯å­—ç¬¦ä¸²çš„æœ‰æ•ˆæ€§
+	 * @param s éªŒè¯å­—ç¬¦ä¸²
+	 * @return æ˜¯å¦æœ‰æ•ˆçš„å¸ƒå°”å€¼
 	 */
 	public static boolean validateString(String s){
-		if(s != null && s.trim().length() > 0){//Èç¹û×Ö·û´®²»Îª¿Õ·µ»Øtrue
+		if(s != null && s.trim().length() > 0){//å¦‚æœå­—ç¬¦ä¸²ä¸ä¸ºç©ºè¿”å›true
 			return true;
 		}
-		return false;//×Ö·û´®Îª¿Õ·µ»Øfalse
+		return false;//å­—ç¬¦ä¸²ä¸ºç©ºè¿”å›false
 	}
 	/**
-	 * ÑéÖ¤¸¡µã¶ÔÏóµÄÓĞĞ§ĞÔ
-	 * @param f ¸¡µã¶ÔÏó
-	 * @return ÊÇ·ñÓĞĞ§µÄ²¼¶ûÖµ
+	 * éªŒè¯æµ®ç‚¹å¯¹è±¡çš„æœ‰æ•ˆæ€§
+	 * @param f æµ®ç‚¹å¯¹è±¡
+	 * @return æ˜¯å¦æœ‰æ•ˆçš„å¸ƒå°”å€¼
 	 */
 	public static boolean validateFloat(Float f){
 		try {

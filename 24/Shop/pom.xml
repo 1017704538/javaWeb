@@ -15,7 +15,7 @@
         <servlet.version>4.0.1</servlet.version>
         <dom4j.version>1.6.1</dom4j.version>
         <junit.version>4.12</junit.version>
-        <hibernate.version>5.3.7.Final</hibernate.version>
+        <hibernate.version>3.6.10.Final</hibernate.version>
         <struts2.version>2.1.8</struts2.version>
         <spring-framework.version>4.3.11.RELEASE</spring-framework.version>
     </properties>

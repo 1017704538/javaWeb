@@ -5,78 +5,78 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 /**
- * Hibernate¹¤¾ßÀà£¬ÓÃÓÚ»ñÈ¡Session
+ * Hibernateå·¥å…·ç±»ï¼Œç”¨äºè·å–Session
  * @author Li Yongqiang
  */
 public class HibernateUtils {
-	// ÉùÃ÷SessionFactory¶ÔÏó
+	// å£°æ˜SessionFactoryå¯¹è±¡
 	private static SessionFactory factory = null;
-	// ÊµÀı»¯ThreadLocal¶ÔÏó
+	// å®ä¾‹åŒ–ThreadLocalå¯¹è±¡
 	private static final ThreadLocal<Session> threadLocal = new ThreadLocal<Session>();
-	// ÊµÀı»¯Configuration¶ÔÏó
+	// å®ä¾‹åŒ–Configurationå¯¹è±¡
 	private static Configuration cfg = new Configuration();
-	// ¾²Ì¬¿é
+	// é™æ€å—
 	static {
 		try {
-			// ¼ÓÔØHibernateÅäÖÃÎÄ¼ş
+			// åŠ è½½Hibernateé…ç½®æ–‡ä»¶
 			cfg.configure();
-			// ÊµÀı»¯SessionFactory
+			// å®ä¾‹åŒ–SessionFactory
 			factory = cfg.buildSessionFactory();
 		} catch (HibernateException e) {
-			e.printStackTrace(); // ´òÓ¡Òì³£ĞÅÏ¢
+			e.printStackTrace(); // æ‰“å°å¼‚å¸¸ä¿¡æ¯
 		}
 	}
 	/**
-	 * »ñÈ¡Session¶ÔÏó
-	 * @return Session¶ÔÏó
+	 * è·å–Sessionå¯¹è±¡
+	 * @return Sessionå¯¹è±¡
 	 */
 	public static Session getSession() {
-		// ´ÓthreadLocalÖĞ»ñÈ¡Session
+		// ä»threadLocalä¸­è·å–Session
 		Session session = (Session) threadLocal.get();
-		// ÅĞ¶ÏsessionÊÇ·ñÎª¿Õ»òÎ´´¦ÓÚ¿ªÆô×´Ì¬
+		// åˆ¤æ–­sessionæ˜¯å¦ä¸ºç©ºæˆ–æœªå¤„äºå¼€å¯çŠ¶æ€
 		if (session == null || !session.isOpen()) {
 			if (factory == null) {
 				rebuildSessionFactory();
 			}
-			// ´Ófactory¿ªÆôÒ»¸öSession
+			// ä»factoryå¼€å¯ä¸€ä¸ªSession
 			session = (factory != null) ? factory.openSession() : null;
-			threadLocal.set(session); // ½«session·ÅÈëthreadLocalÖĞ
+			threadLocal.set(session); // å°†sessionæ”¾å…¥threadLocalä¸­
 		}
 		return session;
 	}
 	/**
-	 * »ñÈ¡SessionFactory¶ÔÏó
-	 * @return SessionFactory¶ÔÏó
+	 * è·å–SessionFactoryå¯¹è±¡
+	 * @return SessionFactoryå¯¹è±¡
 	 */
 	public static SessionFactory getSessionFactory() {
 		return factory;
 	}
 	/**
-	 * ¹Ø±ÕSession
-	 * @param session¶ÔÏó
+	 * å…³é—­Session
+	 * @param sessionå¯¹è±¡
 	 */
 	public static void closeSession() {
-		// ´ÓthreadLocalÖĞ»ñÈ¡Session
+		// ä»threadLocalä¸­è·å–Session
 		Session session = (Session) threadLocal.get();
-		// ÒÆ³ıthreadLocalÖĞµÄ¶ÔÏó
+		// ç§»é™¤threadLocalä¸­çš„å¯¹è±¡
 		threadLocal.remove();
 		if (session != null) {
 			if (session.isOpen()) {
-				session.close(); // ¹Ø±ÕSession
+				session.close(); // å…³é—­Session
 			}
 		}
 	}
 	/**
-	 * ´´½¨SessionFactory¶ÔÏó
+	 * åˆ›å»ºSessionFactoryå¯¹è±¡
 	 */
 	public static void rebuildSessionFactory() {
 		try {
-			// ¼ÓÔØHibernateÅäÖÃÎÄ¼ş
+			// åŠ è½½Hibernateé…ç½®æ–‡ä»¶
 			cfg.configure();
-			// ÊµÀı»¯SessionFactory
+			// å®ä¾‹åŒ–SessionFactory
 			factory = cfg.buildSessionFactory();
 		} catch (Exception e) {
-			e.printStackTrace(); // ´òÓ¡Òì³£ĞÅÏ¢
+			e.printStackTrace(); // æ‰“å°å¼‚å¸¸ä¿¡æ¯
 		}
 	}
 }

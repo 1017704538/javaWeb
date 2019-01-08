@@ -3,18 +3,18 @@ package com.lyq.util;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 /**
- * ·ºĞÍ¹¤¾ßÀà
+ * æ³›å‹å·¥å…·ç±»
  * @author Li Yongqiang
  */
 public class GenericsUtils {
 	/**
-	 * »ñÈ¡·ºĞÍµÄÀàĞÍ
+	 * è·å–æ³›å‹çš„ç±»å‹
 	 * @param clazz
 	 * @return Class
 	 */
 	@SuppressWarnings("unchecked")
 	public static Class getGenericType(Class clazz){
-		Type genType = clazz.getGenericSuperclass();//µÃµ½·ºĞÍ¸¸Àà  
+		Type genType = clazz.getGenericSuperclass();//å¾—åˆ°æ³›å‹çˆ¶ç±»  
 		Type[] types = ((ParameterizedType) genType).getActualTypeArguments();
 		if (!(types[0] instanceof Class)) {
             return Object.class;   
@@ -22,9 +22,9 @@ public class GenericsUtils {
 		return (Class) types[0];
 	}
 	/**
-	 * »ñÈ¡¶ÔÏóµÄÀàÃû³Æ
+	 * è·å–å¯¹è±¡çš„ç±»åç§°
 	 * @param clazz
-	 * @return ÀàÃû³Æ
+	 * @return ç±»åç§°
 	 */
 	@SuppressWarnings("unchecked")
 	public static String getGenericName(Class clazz){
